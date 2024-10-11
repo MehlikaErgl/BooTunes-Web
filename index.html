@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BooTunes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+        header {
+            background-color: #4682b4;
+            padding: 10px;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            padding: 14px 20px;
+            display: block;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        .content {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .content h1 {
+            font-size: 64px;
+            font-weight: bold;
+            color: #4682b4;
+        }
+        .names {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 16px;
+            line-height: 24px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Names in the top-left corner -->
+    <div class="names">
+        <p>Mehlika Eroğlu</p>
+        <p>Melih Aydın</p>
+        <p>Elif Alptekin</p>
+        <p>Batuhan Dalkılıç</p>
+    </div>
+
+    <!-- Header and Navbar -->
+    <header>BooTunes Project</header>
+    <nav>
+        <a href="#" id="bootunes-link">BooTunes</a>
+        <a href="#" id="reports-link">Reports</a>
+    </nav>
+
+    <!-- Content -->
+    <div class="content" id="content">
+        <h1>BooTunes</h1>
+    </div>
+
+    <!-- JavaScript for dynamic content switching -->
+    <script>
+        document.getElementById('bootunes-link').addEventListener('click', function() {
+            document.getElementById('content').innerHTML = '<h1>BooTunes</h1>';
+        });
+
+        document.getElementById('reports-link').addEventListener('click', function() {
+            document.getElementById('content').innerHTML = '<h1>Reports</h1>';
+        });
+    </script>
+
+</body>
+</html>
