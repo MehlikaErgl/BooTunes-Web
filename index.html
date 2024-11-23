@@ -1,186 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BooTunes Project</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background: url('https://images.unsplash.com/photo-1512820790803-83ca734da794') no-repeat center center fixed;
-            background-size: cover;
-            color: #fff;
-        }
-
-        header {
-            text-align: center;
-            padding: 100px 20px;
-            background: rgba(0, 0, 0, 0.5);
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-        }
-
-        header h1 {
-            font-size: 4rem;
-            font-weight: bold;
-            color: #FFD700;
-        }
-
-        header p {
-            font-size: 1.5rem;
-            font-style: italic;
-            margin-top: 10px;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.8);
-            color: #333;
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: scale(1.05);
-        }
-
-        .card-title {
-            color: #333;
-            font-weight: bold;
-        }
-
-        footer {
-            background: rgba(0, 0, 0, 0.6);
-            color: #FFD700;
-            text-align: center;
-            padding: 20px;
-            font-size: 1rem;
-            border-top-left-radius: 50px;
-            border-top-right-radius: 50px;
-        }
-
-        .container {
-            margin-top: -50px;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #FFD700;
-            margin-bottom: 30px;
-        }
-
-        .text-center h2 {
-            font-size: 2rem;
-            color: #fff;
-            margin-bottom: 20px;
-        }
-
-        .container .row {
-            justify-content: center;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BooTunes - Home</title>
+  <link rel="stylesheet" href="web.css">
 </head>
 <body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <img src="photos/bootunes logo.jpg" alt="Logo" class="logo">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="project-reports.html">Project Reports</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
 
-<header>
-    <h1>BooTunes</h1>
-    <p>Music that matches the mood of the book you're reading</p>
-</header>
-
-<div class="container my-5">
-    <div class="row">
-        <div class="col text-center">
-            <h2 class="section-title">Project Members</h2>
-        </div>
+  <!-- Home Section -->
+  <section id="home" class="section">
+    <div class="overlay">
+      <h1 class="main-title">BooTunes</h1>
+      <p class="subtitle">Music that matches the mood of the book you're reading</p>
     </div>
-    <div class="row">
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h4 class="card-title">Melih Aydın</h4>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h4 class="card-title">Mehlika Eroglu</h4>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h4 class="card-title">Batuhan Dalkılıç</h4>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h4 class="card-title">Elif Alptekin</h4>
-                </div>
-            </div>
-        </div>
-    
-    </div>
-
-    <div class="row mt-5">
-        <div class="col text-center">
-            <h2 class="section-title">Supervisor</h2>
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h4 class="card-title">Venera Adanova</h4>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mt-5">
-        <div class="col text-center">
-            <h2 class="section-title">Juries</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h4 class="card-title">Eren Ulu</h4>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h4 class="card-title">Gökçe Nur Yılmaz</h4>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h4 class="card-title">Fırat Akba</h4>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<footer>
-    © 2024 BooTunes. All rights reserved.
-</footer>
-
-<!-- Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </section>
 </body>
 </html>
