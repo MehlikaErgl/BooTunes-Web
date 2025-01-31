@@ -1,0 +1,50 @@
+body {
+    background: linear-gradient(135deg, #1d1b31, #252a41);
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+.card {
+    width: 350px;
+    background: white;
+    color: black;
+    border-radius: 12px;
+}
+
+.btn {
+    transition: all 0.3s ease-in-out;
+}
+
+.login-btn {
+    background: #007bff;
+    border: none;
+}
+
+.login-btn:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+.signup-btn {
+    background: #28a745;
+    border: none;
+}
+
+.signup-btn:hover {
+    background: #1e7e34;
+    transform: scale(1.05);
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+input:focus {
+    border-color: #007bff !important;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5) !important;
+}

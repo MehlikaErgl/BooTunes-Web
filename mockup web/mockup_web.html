@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BooTunes - Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+       body {
+    background: linear-gradient(135deg, rgba(29, 27, 49, 0.9), rgba(37, 42, 65, 0.9)),
+                url('./wallpaper.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+
+        .card {
+            background: rgba(255, 255, 255, 0.15); /* Transparan beyaz kart */
+            color: black;
+            border-radius: 12px;
+            backdrop-filter: blur(10px); /* Blur efekti */
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        input:focus {
+            border-color: #007bff !important;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5) !important;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4 rounded-4 border-0" style="max-width: 400px; width: 100%;">
+        <div class="text-center mb-3">
+            <h2 class="fw-bold text-primary">BooTunes</h2>
+            <p class="text-muted">Read with Emotion 🎵📖</p>
+        </div>
+
+        <!-- Login Form -->
+        <div id="loginForm">
+            <h4 class="text-center mb-3">Sign In</h4>
+            <form id="signInForm">
+                <div class="mb-3">
+                    <input type="email" class="form-control rounded-pill" placeholder="Email" required>
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control rounded-pill" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 rounded-pill fw-bold">Login</button>
+            </form>
+            <p class="text-center mt-3">Don't have an account? 
+                <a href="#" id="showSignUp" class="text-primary fw-bold">Sign Up</a>
+            </p>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div id="signUpForm" class="d-none">
+            <h4 class="text-center mb-3">Sign Up</h4>
+            <form id="signUp">
+                <div class="mb-3">
+                    <input type="text" class="form-control rounded-pill" placeholder="Full Name" required>
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control rounded-pill" placeholder="Email" required>
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control rounded-pill" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-success w-100 rounded-pill fw-bold">Register</button>
+            </form>
+            <p class="text-center mt-3">Already have an account? 
+                <a href="#" id="showSignIn" class="text-success fw-bold">Sign In</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const loginForm = document.getElementById("loginForm");
+        const signUpForm = document.getElementById("signUpForm");
+        const showSignUp = document.getElementById("showSignUp");
+        const showSignIn = document.getElementById("showSignIn");
+
+        showSignUp.addEventListener("click", function(event) {
+            event.preventDefault();
+            loginForm.classList.add("d-none");
+            signUpForm.classList.remove("d-none");
+        });
+
+        showSignIn.addEventListener("click", function(event) {
+            event.preventDefault();
+            signUpForm.classList.add("d-none");
+            loginForm.classList.remove("d-none");
+        });
+
+        document.getElementById("signInForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Login Successful!");
+        });
+
+        document.getElementById("signUp").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Sign Up Successful! You can now log in.");
+            signUpForm.classList.add("d-none");
+            loginForm.classList.remove("d-none");
+        });
+    });
+</script>
+</body>
+</html>
