@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BooTunes - AI Book Experience</title>
+    <base target="_self">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            200: '#ddd6fe',
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            800: '#5b21b6',
+                            900: '#4c1d95',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #0ea5e9, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .section {
+            scroll-margin-top: 100px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center" onclick="event.preventDefault(); scrollToTop()">
+                        <span class="text-xl font-bold text-primary-600 dark:text-primary-400">BooTunes</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" onclick="handleNavClick(event)">Home</a>
+                    <a href="#project" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" onclick="handleNavClick(event)">Project</a>
+                    <a href="#team" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" onclick="handleNavClick(event)">Team</a>
+                    <a href="#technologies" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" onclick="handleNavClick(event)">Technologies</a>
+                    <a href="#demo" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" onclick="handleNavClick(event)">Demo</a>
+                </div>
+                <div class="flex items-center">
+                    <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg p-2">
+                        <i id="theme-icon" class="fas fa-moon"></i>
+                    </button>
+                    <button class="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 pb-4 px-4">
+            <div class="flex flex-col space-y-2">
+                <a href="#home" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" onclick="handleNavClick(event)">Home</a>
+                <a href="#project" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" onclick="handleNavClick(event)">Project</a>
+                <a href="#team" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" onclick="handleNavClick(event)">Team</a>
+                <a href="#technologies" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" onclick="handleNavClick(event)">Technologies</a>
+                <a href="#demo" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" onclick="handleNavClick(event)">Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="section min-h-screen flex items-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center max-w-3xl mx-auto">
+                <div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+                        <span class="gradient-text">BooTunes</span><br>
+                        Where Books Meet Music
+                    </h1>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+                        An AI-powered platform that transforms your reading experience with chapter summaries, emotion analysis, and personalized music recommendations.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#project" class="px-6 py-3 border border-primary-600 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-gray-800 rounded-lg font-medium transition-colors" onclick="handleNavClick(event)">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Description -->
+    <section id="project" class="section py-20 bg-gray-100 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Project Overview</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 dark:text-gray-300">
+                    BooTunes revolutionizes reading by combining AI-powered book analysis with personalized music recommendations to enhance your literary journey.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-book-open text-primary-600 dark:text-primary-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Chapter Summarization</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Using Pegasus transformer model to generate concise, accurate summaries for each chapter.
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-secondary-100 dark:bg-secondary-900 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-heart text-secondary-600 dark:text-secondary-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Emotion Analysis</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Advanced NLP techniques to detect emotional tone and sentiment in each chapter.
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-music text-primary-600 dark:text-primary-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Music Recommendation</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Curated playlists matching the emotional tone and themes of each chapter.
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-secondary-100 dark:bg-secondary-900 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-image text-secondary-600 dark:text-secondary-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Visual Generation</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Stable Diffusion creates atmospheric images based on chapter content.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-8 md:p-12">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">How It Works</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-primary-100 dark:bg-primary-900 rounded-lg p-2 mr-4">
+                                    <span class="text-primary-600 dark:text-primary-400 font-bold">1</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 dark:text-white">Upload or Select a Book</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 mt-1">
+                                        Users can upload their own books or choose from our curated library.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-primary-100 dark:bg-primary-900 rounded-lg p-2 mr-4">
+                                    <span class="text-primary-600 dark:text-primary-400 font-bold">2</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 dark:text-white">AI Processing</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 mt-1">
+                                        Our system analyzes each chapter for content, themes, and emotional tone.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-primary-100 dark:bg-primary-900 rounded-lg p-2 mr-4">
+                                    <span class="text-primary-600 dark:text-primary-400 font-bold">3</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 dark:text-white">Immersive Experience</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 mt-1">
+                                        Receive chapter summaries, visual representations, and music playlists.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center p-8 bg-black">
+                        <video controls class="w-full max-w-xl rounded-lg shadow-lg">
+                          <source src="./photos/WhatsApp Video 2025-06-19 saat 23.30.14_4956694f.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                      
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Team</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 dark:text-gray-300">
+                    The talented group behind BooTunes who made this innovative project possible.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-48 bg-gradient-to-r from-primary-400 to-secondary-400 flex items-center justify-center">
+                        <i class="fas fa-user text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Melih Aydın</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Developed the emotion analysis system and integrated dynamic music playback based on emotional context.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-48 bg-gradient-to-r from-secondary-400 to-primary-400 flex items-center justify-center">
+                        <i class="fas fa-user text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Batuhan Dalkılıç</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Built the summarization system using Pegasus and implemented chapter-level AI-driven summaries.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-48 bg-gradient-to-r from-primary-400 to-secondary-400 flex items-center justify-center">
+                        <i class="fas fa-user text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Mehlika Eroğlu</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Created the visual generation pipeline using Stable Diffusion to produce emotion-aligned chapter images.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-48 bg-gradient-to-r from-secondary-400 to-primary-400 flex items-center justify-center">
+                        <i class="fas fa-user text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Elif Alptekin</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Implemented responsive design principles and ensured seamless mobile compatibility across the platform.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section id="technologies" class="section py-20 bg-gray-100 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Technologies Used</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 dark:text-gray-300">
+                    We leveraged cutting-edge technologies to bring BooTunes to life.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md flex flex-col items-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="h-12 w-12 mb-3">
+                    <span class="text-gray-900 dark:text-white font-medium">React</span>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md flex flex-col items-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="h-12 w-12 mb-3">
+                    <span class="text-gray-900 dark:text-white font-medium">Node.js</span>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md flex flex-col items-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" class="h-12 w-12 mb-3">
+                    <span class="text-gray-900 dark:text-white font-medium">Express</span>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md flex flex-col items-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="h-12 w-12 mb-3">
+                    <span class="text-gray-900 dark:text-white font-medium">MongoDB</span>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md flex flex-col items-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="h-12 w-12 mb-3">
+                    <span class="text-gray-900 dark:text-white font-medium">Python</span>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md flex flex-col items-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" class="h-12 w-12 mb-3">
+                    <span class="text-gray-900 dark:text-white font-medium">TensorFlow</span>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md flex flex-col items-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" class="h-12 w-12 mb-3">
+                    <span class="text-gray-900 dark:text-white font-medium">PyTorch</span>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md flex flex-col items-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="h-12 w-12 mb-3">
+                    <span class="text-gray-900 dark:text-white font-medium">Docker</span>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md flex flex-col items-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" alt="Nginx" class="h-12 w-12 mb-3">
+                    <span class="text-gray-900 dark:text-white font-medium">Nginx</span>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md flex flex-col items-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS" class="h-12 w-12 mb-3">
+                    <span class="text-gray-900 dark:text-white font-medium">AWS</span>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md flex flex-col items-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="h-12 w-12 mb-3">
+                    <span class="text-gray-900 dark:text-white font-medium">Git</span>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md flex flex-col items-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="h-12 w-12 mb-3">
+                    <span class="text-gray-900 dark:text-white font-medium">JavaScript</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo & Report Section -->
+    <section id="demo" class="section py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Project Report</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 dark:text-gray-300">
+                    Explore our app and download the complete project documentation.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-xl">
+                    <div class="h-64 bg-gradient-to-r from-primary-500 to-secondary-500 flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-white text-8xl"></i>
+                    </div>
+                </div>
+                                    
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Project Report</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">
+                            Download our comprehensive project documentation including technical specifications, implementation details, and evaluation metrics.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-colors flex-1">
+                                Download PDF <i class="fas fa-download ml-2"></i>
+                            </button>
+                            <button class="px-6 py-3 border border-primary-600 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-gray-800 rounded-lg font-medium transition-colors flex-1">
+                                View Online <i class="fas fa-eye ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <a href="files/Team BME-BooTunes Project Analysis.pdf" target="_blank" class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium text-center transition-colors">
+                            Final Report
+                        </a>
+                        <a href="files/Team_BME-BooTunes_Project_Spesification_Report.pdf" target="_blank" class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium text-center transition-colors">
+                            System Architecture
+                        </a>
+                        <a href="files/Team BME-BooTunes-Low Level Design Report.pdf" target="_blank" class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium text-center transition-colors">
+                            Emotion Analysis Documentation
+                        </a>
+                        <a href="files/TeamBME-BooTunes_High-Level_Design_Report.pdf" target="_blank" class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium text-center transition-colors">
+                            Visual Generation Guide
+                        </a>
+                        <a href="files/TeamBME_BooTunes-Multidisciplinary_Delivery_Assesment.pdf" target="_blank" class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium text-center transition-colors">
+                            Music Recommendation Logic
+                        </a>
+                        <a href="files/TeamBME_BooTunes-Test_Plan_Report.pdf" target="_blank" class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium text-center transition-colors">
+                            Mobile Compatibility Report
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">BooTunes</h3>
+                    <p class="text-gray-400">
+                        An AI-powered platform that transforms your reading experience with chapter summaries, emotion analysis, and personalized music recommendations.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors" onclick="handleNavClick(event)">Home</a></li>
+                        <li><a href="#project" class="text-gray-400 hover:text-white transition-colors" onclick="handleNavClick(event)">Project</a></li>
+                        <li><a href="#team" class="text-gray-400 hover:text-white transition-colors" onclick="handleNavClick(event)">Team</a></li>
+                        <li><a href="#demo" class="text-gray-400 hover:text-white transition-colors" onclick="handleNavClick(event)">Demo</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">GitHub Repository</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Research Papers</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 202 BooTunes. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        
+        if (localStorage.getItem('color-theme') === 'dark' || (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
+        }
+        
+        themeToggle.addEventListener('click', function() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+        
+        // Navigation handling
+        function handleNavClick(event) {
+            event.preventDefault();
+            const targetId = event.currentTarget.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+            
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+        }
+        
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Demo button functionality
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('Launch Demo') || button.textContent.includes('Download PDF') || button.textContent.includes('View Online')) {
+                button.addEventListener('click', function() {
+                    alert('This would navigate to the demo/report in a real implementation.');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
