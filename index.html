@@ -77,7 +77,7 @@
                     <a href="#project" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" onclick="handleNavClick(event)">Project</a>
                     <a href="#team" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" onclick="handleNavClick(event)">Team</a>
                     <a href="#technologies" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" onclick="handleNavClick(event)">Technologies</a>
-                    <a href="#demo" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" onclick="handleNavClick(event)">Demo</a>
+                    <a href="#demo" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" onclick="handleNavClick(event)">Reports</a>
                 </div>
                 <div class="flex items-center">
                     <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg p-2">
@@ -96,34 +96,38 @@
                 <a href="#project" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" onclick="handleNavClick(event)">Project</a>
                 <a href="#team" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" onclick="handleNavClick(event)">Team</a>
                 <a href="#technologies" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" onclick="handleNavClick(event)">Technologies</a>
-                <a href="#demo" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" onclick="handleNavClick(event)">Demo</a>
+                <a href="#demo" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" onclick="handleNavClick(event)">Reports</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="section min-h-screen flex items-center pt-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div class="text-center max-w-3xl mx-auto">
-                <div>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-                        <span class="gradient-text">BooTunes</span><br>
-                        Where Books Meet Music
-                    </h1>
-                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
-                        An AI-powered platform that transforms your reading experience with chapter summaries, emotion analysis, and personalized music recommendations.
-                    </p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="#project" class="px-6 py-3 border border-primary-600 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-gray-800 rounded-lg font-medium transition-colors" onclick="handleNavClick(event)">
-                            Learn More
-                        </a>
-                    </div>
-                </div>
-                
+    <!-- Hero Section -->
+<section id="home" class="section relative min-h-screen flex items-center pt-16">
+    <!-- Background overlay for both light and dark modes -->
+    <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-[url('./photos/background.jpg')] bg-center bg-cover opacity-20 dark:opacity-30"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="text-center max-w-3xl mx-auto">
+            <div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+                    <span class="gradient-text">BooTunes</span><br>
+                    Where Books Meet Music
+                </h1>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+                    An AI-powered platform that transforms your reading experience with chapter summaries, emotion analysis, and personalized music recommendations.
+                </p>
+                <div class="flex justify-center flex-wrap gap-4">
+                    <a href="#project" class="px-6 py-3 border border-primary-600 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-gray-800 rounded-lg font-medium transition-colors" 
+                       onclick="handleNavClick(event)">
+                        Learn More
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Project Description -->
     <section id="project" class="section py-20 bg-gray-100 dark:bg-gray-800">
@@ -217,11 +221,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex items-center justify-center p-8 bg-black">
-                        <video controls class="w-full max-w-xl rounded-lg shadow-lg">
-                          <source src="./photos/WhatsApp Video 2025-06-19 saat 23.30.14_4956694f.mp4" type="video/mp4">
-                          Your browser does not support the video tag.
-                        </video>
+                    <div class="flex items-center justify-center bg-black">
+                        <video autoplay muted loop playsinline controls class="w-full max-w-xl rounded-lg shadow-lg">
+                            <source src="./photos/WhatsApp Video 2025-06-19 saat 23.30.14_4956694f.mp4" type="video/mp4">
+                        </video>                        
                       </div>
                       
                 </div>
@@ -355,61 +358,78 @@
     </section>
 
     <!-- Demo & Report Section -->
-    <section id="demo" class="section py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Project Report</h2>
-                <p class="max-w-3xl mx-auto text-gray-600 dark:text-gray-300">
-                    Explore our app and download the complete project documentation.
-                </p>
+<!-- Reports Section -->
+<section id="reports" class="section py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Project Reports</h2>
+            <p class="max-w-3xl mx-auto text-gray-600 dark:text-gray-300">Explore our comprehensive project documents and specifications.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">    
+             <!-- Final Report -->
+             <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow hover:shadow-lg transition">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Project Analysis Report</h3>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">Detailed final project analysis and results.</p>
+                <a href="files/Team BME-BooTunes Project Analysis.pdf" target="_blank" class="mt-4 inline-block px-4 py-2 rounded bg-primary-600 hover:bg-primary-700 text-white text-center">
+                    View Online
+                </a>
+            </div>        
+            <!-- System Architecture -->
+            <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow hover:shadow-lg transition">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Project Spesification Report</h3>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">High-level design and architectural details of the system.</p>
+                <a href="files/Team_BME-BooTunes_Project_Spesification_Report.pdf" target="_blank" class="mt-4 inline-block px-4 py-2 rounded bg-primary-600 hover:bg-primary-700 text-white text-center">
+                    View Online
+                </a>
             </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div class="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-xl">
-                    <div class="h-64 bg-gradient-to-r from-primary-500 to-secondary-500 flex items-center justify-center">
-                        <i class="fas fa-laptop-code text-white text-8xl"></i>
-                    </div>
-                </div>
-                                    
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Project Report</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-6">
-                            Download our comprehensive project documentation including technical specifications, implementation details, and evaluation metrics.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <button class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-colors flex-1">
-                                Download PDF <i class="fas fa-download ml-2"></i>
-                            </button>
-                            <button class="px-6 py-3 border border-primary-600 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-gray-800 rounded-lg font-medium transition-colors flex-1">
-                                View Online <i class="fas fa-eye ml-2"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <a href="files/Team BME-BooTunes Project Analysis.pdf" target="_blank" class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium text-center transition-colors">
-                            Final Report
-                        </a>
-                        <a href="files/Team_BME-BooTunes_Project_Spesification_Report.pdf" target="_blank" class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium text-center transition-colors">
-                            System Architecture
-                        </a>
-                        <a href="files/Team BME-BooTunes-Low Level Design Report.pdf" target="_blank" class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium text-center transition-colors">
-                            Emotion Analysis Documentation
-                        </a>
-                        <a href="files/TeamBME-BooTunes_High-Level_Design_Report.pdf" target="_blank" class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium text-center transition-colors">
-                            Visual Generation Guide
-                        </a>
-                        <a href="files/TeamBME_BooTunes-Multidisciplinary_Delivery_Assesment.pdf" target="_blank" class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium text-center transition-colors">
-                            Music Recommendation Logic
-                        </a>
-                        <a href="files/TeamBME_BooTunes-Test_Plan_Report.pdf" target="_blank" class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium text-center transition-colors">
-                            Mobile Compatibility Report
-                        </a>
-                    </div>
-                    
-                </div>
+
+            <!-- Emotion Analysis Documentation -->
+            <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow hover:shadow-lg transition">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Low Level Design Report</h3>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">Detailed low-level design for the emotion detection pipeline.</p>
+                <a href="files/Team BME-BooTunes-Low Level Design Report.pdf" target="_blank" class="mt-4 inline-block px-4 py-2 rounded bg-primary-600 hover:bg-primary-700 text-white text-center">
+                    View Online
+                </a>
+            </div>
+
+            <!-- Visual Generation Guide -->
+            <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow hover:shadow-lg transition">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">High-level Design Report</h3>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">Design and integration of the Stable Diffusion visual generation component.</p>
+                <a href="files/TeamBME-BooTunes_High-Level_Design_Report.pdf" target="_blank" class="mt-4 inline-block px-4 py-2 rounded bg-primary-600 hover:bg-primary-700 text-white text-center">
+                    View Online
+                </a>
+            </div>
+
+            <!-- Music Recommendation Logic -->
+            <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow hover:shadow-lg transition">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Multidisciplinary Delivery Assesment Report</h3>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">Detailed design and implementation of music recommendations.</p>
+                <a href="files/TeamBME_BooTunes-Multidisciplinary_Delivery_Assesment.pdf" target="_blank" class="mt-4 inline-block px-4 py-2 rounded bg-primary-600 hover:bg-primary-700 text-white text-center">
+                    View Online
+                </a>
+            </div>
+
+            <!-- Mobile Compatibility Report -->
+            <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow hover:shadow-lg transition">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Test Plan Report</h3>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">Assessment and testing for mobile responsiveness and compatibility across devices.</p>
+                <a href="files/TeamBME_BooTunes-Test_Plan_Report.pdf" target="_blank" class="mt-4 inline-block px-4 py-2 rounded bg-primary-600 hover:bg-primary-700 text-white text-center">
+                    View Online
+                </a>
+            </div>
+            <!-- Final Report -->
+            <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow hover:shadow-lg transition">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Final Report</h3>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">Detailed final project analysis and results.</p>
+                <a href="files/TeamBME-BooTunes-Final Project Report-v1.pdf" target="_blank" class="mt-4 inline-block px-4 py-2 rounded bg-primary-600 hover:bg-primary-700 text-white text-center">
+                    View Online
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12">
@@ -427,7 +447,7 @@
                         <li><a href="#home" class="text-gray-400 hover:text-white transition-colors" onclick="handleNavClick(event)">Home</a></li>
                         <li><a href="#project" class="text-gray-400 hover:text-white transition-colors" onclick="handleNavClick(event)">Project</a></li>
                         <li><a href="#team" class="text-gray-400 hover:text-white transition-colors" onclick="handleNavClick(event)">Team</a></li>
-                        <li><a href="#demo" class="text-gray-400 hover:text-white transition-colors" onclick="handleNavClick(event)">Demo</a></li>
+                        <li><a href="#reports" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" onclick="handleNavClick(event)">Reports</a></li>                       
                     </ul>
                 </div>
                 <div>
